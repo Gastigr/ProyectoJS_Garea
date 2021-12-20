@@ -17,13 +17,28 @@ header {
     align-items: center;
     padding: 20px 10%;
     box-shadow: 0px 5px 4px 3px #0000004d;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 h1 {
-    color: rgb(225, 76, 65);
+    color: #e14c41;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 30px;
+}
+p {
+    line-height: 1.8;
+}
+.producto {
+    max-width: 30%;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+}
+
+select{
+    display: inline;
+    text-align: center;
+    border: 1px solid lightskyblue;
 }
 #boton-carrito {
     border: none;
@@ -37,7 +52,7 @@ h1 {
 #boton-carrito:hover {
     cursor: pointer;
     color: white;
-    background-color: rgb(225, 76, 65);
+    background-color: #e14c41;
 }
 #boton-carrito:focus {
     outline: none;
@@ -51,20 +66,11 @@ h1 {
     flex-wrap: wrap;
 }
 
-p {
-    line-height: 1.8;
-}
 .producto {
     max-width: 30%;
     padding: 10px;
     margin-bottom: 20px;
-    box-shadow: 2px 6px 3px 3px #0000004d;
-}
-
-select{
-    display: inline;
-    text-align: center;
-    border: 1px solid lightskyblue;
+    
 }
 .modal-contenedor {
     position: fixed;
@@ -108,7 +114,7 @@ select{
     top: 15px;
     right: 15px;
     font-size: 20px;
-    color: rgb(225, 76, 65);
+    color: #e14c41;
     border: none;
     background-color: white;
 }
@@ -123,7 +129,7 @@ select{
     
 }
 .card .card-image .card-title{
-    color :rgb(225, 76, 65);
+    color :#e14c41;
     position:unset
 }
 
@@ -137,7 +143,7 @@ select{
     justify-content: space-between;
 }
 .productoEnCarrito:hover {
-    border-left: 5px solid rgb(225, 76, 65);
+    border-left: 5px solid #e14c41;
 }
 
 .boton-eliminar {

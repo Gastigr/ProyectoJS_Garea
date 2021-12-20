@@ -1,57 +1,12 @@
 let carritoDeCompras = []
 
-
-
-
-
 const contenedorProductos = document.getElementById('contenedor-productos') 
 const contenedorCarrito = document.getElementById('carrito-contenedor');
 
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
-const material = document.getElementById('material')
-const categoria = document.getElementById('categoria')
-const color = document.getElementById('color')
 
-
-
-material.addEventListener('change', ()=>{
-
-    if(material.value == 'all'){
-        mostrarProductos(arrayRelojes)
-
-    }else{
-       mostrarProductos(arrayRelojes.filter(elemento => elemento.material == material.value))
-    }
-    
-})
-
-
-
-
-categoria.addEventListener('change', ()=>{
-
-    if(categoria.value == 'all'){
-        mostrarProductos(arrayRelojes)
-
-    }else{
-       mostrarProductos(arrayRelojes.filter(elemento => elemento.categoria == categoria.value))
-    }
-    
-})
-
-
-color.addEventListener('change', ()=>{
-
-    if(color.value == 'all'){
-        mostrarProductos(arrayRelojes)
-
-    }else{
-       mostrarProductos(arrayRelojes.filter(elemento => elemento.color == color.value))
-    }
-    
-})
 
 
 mostrarProductos(arrayRelojes)
@@ -61,25 +16,23 @@ function mostrarProductos(array){
     array.forEach(productos => {
         let div = document.createElement('div')
         div.classList.add('producto')
-        div.innerHTML +=
-        `
-               <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
+        div.innerHTML +=`
+            <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
                    <div class="card-image">
                        <img src="${productos.img}" class="card-img-top" alt="...">
                        <span class="card-title">${productos.nombre}</span>
                        <a id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
                    </div>    
-                   <div class="card-content ">
-                   
-                       <p> Marca:${productos.marca}</p>
-                       <p class="card-text">Color:  ${productos.color}</p>
-                       <p class="card-text">Material:  ${productos.material}</p>
-                       <p class="card-text">$${productos.precio}</p>
-                       <p class="card-text">Stock:  ${productos.stock}</p>
-                       <p class="card-text color"> ${productos.categoria}</p>
-                   </div>
-               </div>
-               `
+                <div class="card-content ">
+                    <p> Marca:${productos.marca}</p>
+                    <p class="card-text">Color:  ${productos.color}</p>
+                    <p class="card-text">Material:  ${productos.material}</p>
+                    <p class="card-text">$${productos.precio}</p>
+                    <p class="card-text">Stock:  ${productos.stock}</p>
+                    <p class="card-text color"> ${productos.categoria}</p>
+                </div>
+            </div>
+        `
         contenedorProductos.appendChild(div)
         
 
@@ -101,10 +54,6 @@ function mostrarProductos(array){
                 localStorage.setItem('arrayRelojes',JSON.stringify(carritoDeCompras))
 
         });
-
-        
-
-
     })
 }
 
@@ -162,27 +111,3 @@ function  actualizarCarrito (){
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
