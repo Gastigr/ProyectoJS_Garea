@@ -1,5 +1,8 @@
 let carritoDeCompras = []
 
+
+localStorage.setItem('carrito',JSON.stringify([]))
+
 const contenedorProductos = document.getElementById('contenedor-productos') 
 const contenedorCarrito = document.getElementById('carrito-contenedor');
 
@@ -9,7 +12,7 @@ const precioTotal = document.getElementById('precioTotal');
 const material = document.getElementById('material')
 
 material.addEventListener('change', ()=>{
-    console.log(material.value)
+
     if(material.value == 'all'){
         mostrarProductos(arrayRelojes)
 
@@ -19,6 +22,21 @@ material.addEventListener('change', ()=>{
     
 })
 
+const filtro =document.getElementById("filtro")
+
+
+filtro.addEventListener('change', ()=>{
+    if(filtro.value == 'all'){
+        mostrarProductos(arrayRelojes)
+    }else{
+        mostrarProductos(arrayRelojes.filter(elemento => elemento.filtro == filtro.value))
+    }
+})
+
+
+
+
+
 mostrarProductos(arrayRelojes)
 
 function mostrarProductos(array){
@@ -27,7 +45,7 @@ function mostrarProductos(array){
         let div = document.createElement('div')
         div.classList.add('producto')
         div.innerHTML += `
-        <div class="card " id="producto${productos.id}">
+        <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
             <div class="card-image">
                 <img src="${productos.img}" class="card-img-top" alt="...">
                 <span class="card-title">${productos.nombre}</span>
@@ -121,6 +139,28 @@ function  actualizarCarrito (){
     
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//botones//
 let divPop = document.getElementById("divPopPrem")
 let botonPop = document.getElementById("botonPop")
 
@@ -141,5 +181,5 @@ let botonTodos = document.getElementById("botonTodos")
 botonTodos.addEventListener("click", () => {
     mostrarProductos(arrayRelojes)
 })
-
+//botones//
 
