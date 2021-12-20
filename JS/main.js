@@ -1,7 +1,8 @@
 let carritoDeCompras = []
 
 
-localStorage.setItem('carrito',JSON.stringify([]))
+
+
 
 const contenedorProductos = document.getElementById('contenedor-productos') 
 const contenedorCarrito = document.getElementById('carrito-contenedor');
@@ -10,6 +11,8 @@ const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
 const material = document.getElementById('material')
+
+
 
 material.addEventListener('change', ()=>{
 
@@ -22,16 +25,9 @@ material.addEventListener('change', ()=>{
     
 })
 
-const filtro =document.getElementById("filtro")
 
 
-filtro.addEventListener('change', ()=>{
-    if(filtro.value == 'all'){
-        mostrarProductos(arrayRelojes)
-    }else{
-        mostrarProductos(arrayRelojes.filter(elemento => elemento.filtro == filtro.value))
-    }
-})
+
 
 
 
@@ -69,6 +65,8 @@ function mostrarProductos(array){
         
         botonAgregar.addEventListener(`click`, ()=>{
             agregarAlCarrito(productos.id)
+            
+
             Toastify({
                 text: "Producto Agregado ✅",
                 className: "info",
@@ -76,6 +74,10 @@ function mostrarProductos(array){
                   background: "green",
                 }
               }).showToast();
+
+                
+                localStorage.setItem('arrayRelojes',JSON.stringify(carritoDeCompras))
+
         });
 
         
