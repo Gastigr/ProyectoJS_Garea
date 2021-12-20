@@ -61,24 +61,25 @@ function mostrarProductos(array){
     array.forEach(productos => {
         let div = document.createElement('div')
         div.classList.add('producto')
-        div.innerHTML += `
-        <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
-            <div class="card-image">
-                <img src="${productos.img}" class="card-img-top" alt="...">
-                <span class="card-title">${productos.nombre}</span>
-                <a id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
-            </div>    
-            <div class="card-content ">
-            
-                <p> Marca:${productos.marca}</p>
-                <p class="card-text">Color:  ${productos.color}</p>
-                <p class="card-text">Material:  ${productos.material}</p>
-                <p class="card-text">$${productos.precio}</p>
-                <p class="card-text">Stock:  ${productos.stock}</p>
-                <p class="card-text color"> ${productos.categoria}</p>
-            </div>
-        </div>
+        div.innerHTML +=
         `
+               <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
+                   <div class="card-image">
+                       <img src="${productos.img}" class="card-img-top" alt="...">
+                       <span class="card-title">${productos.nombre}</span>
+                       <a id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
+                   </div>    
+                   <div class="card-content ">
+                   
+                       <p> Marca:${productos.marca}</p>
+                       <p class="card-text">Color:  ${productos.color}</p>
+                       <p class="card-text">Material:  ${productos.material}</p>
+                       <p class="card-text">$${productos.precio}</p>
+                       <p class="card-text">Stock:  ${productos.stock}</p>
+                       <p class="card-text color"> ${productos.categoria}</p>
+                   </div>
+               </div>
+               `
         contenedorProductos.appendChild(div)
         
 
@@ -183,26 +184,5 @@ function  actualizarCarrito (){
 
 
 
-//botones//
-let divPop = document.getElementById("divPopPrem")
-let botonPop = document.getElementById("botonPop")
 
-botonPop.addEventListener("click", () => {
-    let populares = arrayRelojes.filter(Elemento=> Elemento.categoria == 'POPULAR')
-    mostrarProductos(populares)
-    
-})
-
-let botonPrem = document.getElementById("botonPrem")
-
-botonPrem.addEventListener("click", () => {
-    let premium = arrayRelojes.filter(Elemento=> Elemento.categoria == 'PREMIUM')
-    mostrarProductos(premium)
-})
-let botonTodos = document.getElementById("botonTodos")
-
-botonTodos.addEventListener("click", () => {
-    mostrarProductos(arrayRelojes)
-})
-//botones//
 
