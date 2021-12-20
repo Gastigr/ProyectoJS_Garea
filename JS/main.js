@@ -11,6 +11,8 @@ const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
 const material = document.getElementById('material')
+const categoria = document.getElementById('categoria')
+const color = document.getElementById('color')
 
 
 
@@ -28,9 +30,28 @@ material.addEventListener('change', ()=>{
 
 
 
+categoria.addEventListener('change', ()=>{
+
+    if(categoria.value == 'all'){
+        mostrarProductos(arrayRelojes)
+
+    }else{
+       mostrarProductos(arrayRelojes.filter(elemento => elemento.categoria == categoria.value))
+    }
+    
+})
 
 
+color.addEventListener('change', ()=>{
 
+    if(color.value == 'all'){
+        mostrarProductos(arrayRelojes)
+
+    }else{
+       mostrarProductos(arrayRelojes.filter(elemento => elemento.color == color.value))
+    }
+    
+})
 
 
 mostrarProductos(arrayRelojes)
