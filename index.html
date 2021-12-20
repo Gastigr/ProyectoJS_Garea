@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/jpg" href="modelos_relojes/icon_tienda.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>TIENDA O`CLOK</title>
+</head>
+
+
+<body>
+    <header>
+        <h1>Tienda O`clok</h1>
+        <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+        
+    </header>
+    
+    <select id="material">
+        <option value="all">Todos</option>
+        <option value="ACERO">Acero</option>
+        <option value="ACERO INOX">Acero Inox</option>
+        <option value="CAUCHO">Caucho</option>
+    </select>
+
+    
+    <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3>Carrito</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito-contenedor">
+               
+            </div>
+            <p class="precioProducto">Precio total: $ <span id="precioTotal">0</span></p>
+        </div>
+    </div>
+
+    <section>
+        <button  id="botonPop">Cargar Prodcutos Popular</button>
+        <button  id="botonPrem">Cargar Prodcutos Premium</button>
+        <button  id="botonTodos">Cargar todos los Prodcutos</button>
+        <div id="divPopPrem"></div>
+
+    </section>
+
+    <main id="contenedor-productos" class="row">
+      
+    </main>
+   
+
+    <div class="btn-whatsapp">
+        <a href="https://api.whatsapp.com/send?     phone=5199999999" target="_blank" rel="noopener">
+            <img src="modelos_relojes/btn_whatsapp.png" alt="btn-whatsapp">
+        </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="JS/stock.js"></script>
+    <script src="./JS/carrito.js"></script>
+	<script src="./JS/main.js"></script>
+</body>
+</html>
