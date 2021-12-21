@@ -36,13 +36,13 @@ select{
     width: 100px;
 }
 #boton-carrito {
-    border: none;
+    border: dashed;
     color: #e14c41;
-    font-size: 40px;
+    font-size: 20px;
     background-color: white;
     border-radius: 30%;
     padding: 10px 20px;
-    transition: all .3s;
+    transition: all .1s;
 }
 #boton-carrito:hover {
     cursor: pointer;
@@ -57,7 +57,7 @@ select{
     max-width: 1200px;
     margin: 60px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -65,6 +65,8 @@ select{
     max-width: 30%;
     padding: 10px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: stretch;
     
 }
 .modal-contenedor {
@@ -125,7 +127,14 @@ select{
 }
 .card .card-image .card-title{
     color :#e14c41;
-    position:unset
+    position:unset;
+    display: grid;
+    margin: 0%;
+    padding: 13%;
+}
+.card .card-content{
+    padding: 11px;
+    border-radius: 0 0 2px 2px;
 }
 
 .productoEnCarrito {
@@ -142,7 +151,7 @@ select{
 }
 
 .boton-eliminar {
-    background-color: white;
+    background-color: white ;
     color: red;
     border: none;
     font-size: 20px;

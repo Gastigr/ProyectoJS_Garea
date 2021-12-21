@@ -1,6 +1,6 @@
 $(()=>{
 
-    console.log ($('#material, #color, #categoria'))
+
 })
 
 
