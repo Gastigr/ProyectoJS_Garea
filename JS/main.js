@@ -1,3 +1,11 @@
+$(()=>{
+
+    console.log ($('#material, #color, #categoria'))
+})
+
+
+
+
 let carritoDeCompras = []
 
 const contenedorProductos = document.getElementById('contenedor-productos') 
