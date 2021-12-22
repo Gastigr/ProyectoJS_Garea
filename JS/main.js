@@ -46,6 +46,7 @@ function mostrarProductos(array){
     })
 }
 
+
 function agregarAlCarrito(id) {
     let verificar = carritoDeCompras.find(elemento => elemento.id == id)
     if(verificar){
