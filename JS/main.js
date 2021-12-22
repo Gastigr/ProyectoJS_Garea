@@ -1,10 +1,8 @@
 
 
-
 let carritoDeCompras = []
 
-// const contenedorProductos = document.getElementById('contenedor-productos') 
-// const contenedorCarrito = document.getElementById('carrito-contenedor');
+
 
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
@@ -16,7 +14,7 @@ mostrarProductos(arrayRelojes)
 
 function mostrarProductos(array){
 
-    // contenedorProductos.innerHTML = ''
+    
     $('#contenedor-productos').empty()
 
 
@@ -26,7 +24,7 @@ function mostrarProductos(array){
         <div class="producto">
             <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
                    <div class="card-image">
-                       <img src="${productos.img}" class="card-img-top" alt="...">
+                       <img src="${productos.img}" class="card-img-top "alt="...">
                        <span class="card-title">${productos.nombre}</span>
                        <a id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
                    </div>    
@@ -41,7 +39,8 @@ function mostrarProductos(array){
             </div>
         </div>    
         `)
-        // contenedorProductos.appendChild(div)
+        
+        
         
 
         let botonAgregar = document.getElementById(`boton${productos.id}`)
