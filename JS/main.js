@@ -8,8 +8,8 @@ $(()=>{
 
 let carritoDeCompras = []
 
-const contenedorProductos = document.getElementById('contenedor-productos') 
-const contenedorCarrito = document.getElementById('carrito-contenedor');
+// const contenedorProductos = document.getElementById('contenedor-productos') 
+// const contenedorCarrito = document.getElementById('carrito-contenedor');
 
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
@@ -20,11 +20,15 @@ const precioTotal = document.getElementById('precioTotal');
 mostrarProductos(arrayRelojes)
 
 function mostrarProductos(array){
-    contenedorProductos.innerHTML = ''
+
+    // contenedorProductos.innerHTML = ''
+    $('#contenedor-productos').empty()
+
+
     array.forEach(productos => {
-        let div = document.createElement('div')
-        div.classList.add('producto')
-        div.innerHTML +=`
+        
+        $('#contenedor-productos').append(`
+        <div class="producto">
             <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
                    <div class="card-image">
                        <img src="${productos.img}" class="card-img-top" alt="...">
@@ -40,8 +44,9 @@ function mostrarProductos(array){
                     <p class="card-text color"> ${productos.categoria}</p>
                 </div>
             </div>
-        `
-        contenedorProductos.appendChild(div)
+        </div>    
+        `)
+        // contenedorProductos.appendChild(div)
         
 
         let botonAgregar = document.getElementById(`boton${productos.id}`)
@@ -56,11 +61,7 @@ function mostrarProductos(array){
                 style: {
                   background: "green",
                 }
-              }).showToast();
-
-                
-                localStorage.setItem('arrayRelojes',JSON.stringify(carritoDeCompras))
-
+            }).showToast();
         });
     })
 }
@@ -69,24 +70,31 @@ function agregarAlCarrito(id) {
     let verificar = carritoDeCompras.find(elemento => elemento.id == id)
     if(verificar){
         verificar.cantidad = verificar.cantidad +1
-        document.getElementById(`cantidad${verificar.id}`).innerHTML = `<p id="cantidad${verificar.id}">Cantidad:${verificar.cantidad}</p>`
+        $(`#cantidad${verificar.id}`).html (`<p id="cantidad${verificar.id}">Cantidad:${verificar.cantidad}</p>`)
         actualizarCarrito()
     }else{
          let productoAgregar = arrayRelojes.find(producto => producto.id == id)
 
-        carritoDeCompras.push(productoAgregar)
+        carritoDeCompras.push(productoAgregar)  
+
+        mostrarCarrito(productoAgregar)
         actualizarCarrito()
 
 
-        let div = document.createElement("div")
-        div.classList.add('productoEnCarrito')
-        div.innerHTML =`
+        
+    }
+    localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
+}
+
+function mostrarCarrito (productoAgregar){
+    $('#carrito-contenedor').append(`<div class="productoEnCarrito">
             <p>${productoAgregar.nombre}</p>
             <p>Precio:$${productoAgregar.precio}</p>
             <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
             <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="fas fa-trash-alt"></i></button>
-        `
-        contenedorCarrito.appendChild(div)
+        </div>    
+        `)
+        // contenedorCarrito.appendChild(div)
 
         let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
 
@@ -104,15 +112,42 @@ function agregarAlCarrito(id) {
                         color: "white",
                     }
                 }).showToast();
+                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
             }else{
                 productoAgregar.cantidad = productoAgregar.cantidad - 1
                 document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>`
                 actualizarCarrito()
+                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
             }
         
         })
+
+
+}
+
+
+
+function recuperar (){
+    let recuperar = JSON.parse(localStorage.getItem('carrito'))
+    
+
+    if(recuperar){
+        recuperar.forEach(el => {
+            mostrarCarrito(el)
+            carritoDeCompras.push(el)
+            actualizarCarrito(  )
+        })
     }
 }
+
+
+
+
+recuperar()
+
+
+
+
 
 function  actualizarCarrito (){
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
