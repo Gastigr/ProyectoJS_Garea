@@ -1,25 +1,15 @@
-
-
 let carritoDeCompras = []
-
-
 
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
-
-
-
 
 mostrarProductos(arrayRelojes)
 
 function mostrarProductos(array){
 
-    
     $('#contenedor-productos').empty()
 
-
     array.forEach(productos => {
-        
         $('#contenedor-productos').append(`
         <div class="producto">
             <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
@@ -39,10 +29,6 @@ function mostrarProductos(array){
             </div>
         </div>    
         `)
-        
-        
-        
-
         let botonAgregar = document.getElementById(`boton${productos.id}`)
         
         botonAgregar.addEventListener(`click`, ()=>{
@@ -73,9 +59,6 @@ function agregarAlCarrito(id) {
 
         mostrarCarrito(productoAgregar)
         actualizarCarrito()
-
-
-        
     }
     localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
 }
@@ -88,8 +71,6 @@ function mostrarCarrito (productoAgregar){
             <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="fas fa-trash-alt"></i></button>
         </div>    
         `)
-        // contenedorCarrito.appendChild(div)
-
         let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
 
 
@@ -115,16 +96,12 @@ function mostrarCarrito (productoAgregar){
             }
         
         })
-
-
 }
 
 
 
 function recuperar (){
     let recuperar = JSON.parse(localStorage.getItem('carrito'))
-    
-
     if(recuperar){
         recuperar.forEach(el => {
             mostrarCarrito(el)
@@ -133,15 +110,7 @@ function recuperar (){
         })
     }
 }
-
-
-
-
 recuperar()
-
-
-
-
 
 function  actualizarCarrito (){
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
