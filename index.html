@@ -32,13 +32,10 @@
 <body>
     <header>
         <h1>Tienda O`clok</h1>
-        
         <button id="boton-carrito"><i class="fas fa-shopping-cart"><span id="contadorCarrito">0</span></i></button>
-        
-        
     </header>
     
-
+    
     
     
     <select id="material">
@@ -46,14 +43,13 @@
         <option value="ACERO">Acero</option>
         <option value="ACERO INOX">Acero Inox</option>
         <option value="CAUCHO">Caucho</option>
-        
-        
+        <option value="PIEL">Piel</option>
     </select>
 
     <select id="categoria">
         <option value="all">Categoria</option>
-        <option value="POPULAR">Popular</option>
-        <option value="PREMIUM">Premium</option>
+        <option value="HOMBRE">Hombre</option>
+        <option value="MUJER">Mujer</option>
     </select>
 
     <select id="color">
@@ -63,6 +59,8 @@
         <option value="Plata">Plata</option>
         <option value="Negro">Negro</option>
         <option value="Blanco">Blanco</option>
+        <option value="Nacar">Nacar</option>
+        <option value="Rosa">Rosa</option>
         <option value="Champan">Champan</option>
     </select>
     
@@ -71,10 +69,8 @@
         <div class="modal-carrito">
             <h3>Carrito</h3>
             <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-            <div id="carrito-contenedor">
-               
-            </div>
-            <p class="precioProducto">Precio total: $ <span id="precioTotal">0</span></p>
+            <div id="carrito-contenedor"></div>
+            <p class="precioProducto">Precio total: € <span id="precioTotal">0</span></p>
         </div>  
     </div>
 
@@ -90,6 +86,7 @@
         </a>
     </div>
     
+  
 
 
 
@@ -98,9 +95,8 @@
 
 
 
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

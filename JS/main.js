@@ -1,8 +1,3 @@
-$(()=>{
-
-
-})
-
 
 
 
@@ -39,7 +34,7 @@ function mostrarProductos(array){
                     <p> Marca:${productos.marca}</p>
                     <p class="card-text">Color:  ${productos.color}</p>
                     <p class="card-text">Material:  ${productos.material}</p>
-                    <p class="card-text">$${productos.precio}</p>
+                    <p class="card-text">€${productos.precio}</p>
                     <p class="card-text">Stock:  ${productos.stock}</p>
                     <p class="card-text color"> ${productos.categoria}</p>
                 </div>
@@ -89,7 +84,7 @@ function agregarAlCarrito(id) {
 function mostrarCarrito (productoAgregar){
     $('#carrito-contenedor').append(`<div class="productoEnCarrito">
             <p>${productoAgregar.nombre}</p>
-            <p>Precio:$${productoAgregar.precio}</p>
+            <p>Precio:€${productoAgregar.precio}</p>
             <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
             <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="fas fa-trash-alt"></i></button>
         </div>    
@@ -154,3 +149,9 @@ function  actualizarCarrito (){
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
     
 }
+
+
+
+
+
+
