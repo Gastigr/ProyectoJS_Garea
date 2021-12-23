@@ -6,6 +6,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: whitesmoke;
 }
 img {
     width: 100%;
@@ -15,12 +16,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 8px 10%;
     box-shadow: 0px 2px 0px 4px #0000004d;
     margin-bottom: 10px;
+    background-color: black;
 }
 h1 {
-    color: #e14c41;
+    color:blanchedalmond;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 30px;
@@ -29,15 +31,17 @@ p {
     line-height: 1.8;
 }
 
-select{
+select {
     display: inline;
     text-align: center;
-    border: 1px solid #87cefa;
+    border: 1px solid blanchedalmond;
     width: 100px;
+    background-color: black;
+    color: blanchedalmond;
 }
 #boton-carrito {
-    border: dashed;
-    color: #e14c41;
+    border: solid;
+    color: black;
     font-size: 20px;
     background-color: white;
     border-radius: 30%;
@@ -47,7 +51,7 @@ select{
 #boton-carrito:hover {
     cursor: pointer;
     color: white;
-    background-color: #e14c41;
+    background-color: black;
 }
 #boton-carrito:focus {
     outline: none;
@@ -60,7 +64,18 @@ select{
     justify-content: center;
     flex-wrap: wrap;
 }
-
+.btn-floating i {
+    width: inherit;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 40px;
+    background-color: black;
+}
+.btn-floating i:hover{
+    background-color: red;
+}
 .producto {
     max-width: 30%;
     padding: 10px;
@@ -103,7 +118,7 @@ select{
 }
 
 .modal-carrito h3 {
-    color: #e14c41;
+    color: black;
     padding-bottom: 5px;
 }
 .modal-carrito #carritoCerrar {
@@ -111,7 +126,7 @@ select{
     top: 15px;
     right: 15px;
     font-size: 20px;
-    color: #e14c41;
+    color: red;
     border: none;
     background-color: white;
 }
@@ -126,7 +141,7 @@ select{
     
 }
 .card .card-image .card-title{
-    color :#e14c41;
+    color :black;
     position:unset;
     display: grid;
     margin: 0%;
@@ -138,7 +153,7 @@ select{
 }
 
 .productoEnCarrito {
-    border-left: 5px solid lightblue;
+    border-left: 5px solid white;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
     margin: 5px 0;
@@ -147,7 +162,7 @@ select{
     justify-content: space-between;
 }
 .productoEnCarrito:hover {
-    border-left: 5px solid #e14c41;
+    border-left: 5px solid black;
 }
 
 .boton-eliminar {
