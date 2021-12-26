@@ -11,7 +11,7 @@ let arrayRelojes =[
     {id: 10, marca: "FESTINA", nombre: "ORIGINALS F20368/1", color: "Negro", material:  "CAUCHO", precio: 500, stock: 7, categoria: "HOMBRE", img:'./img/productos/f20368_1.png', cantidad: 1},
     {id: 11, marca: "FESTINA", nombre: "ORIGINALS F20377/1", color: "Plata", material: "PIEL", precio: 500, stock: 2, categoria: "HOMBRE", img:'./img/productos/f20377_1.png', cantidad: 1},
     {id: 12, marca:  "FESTINA", nombre: "AUTOMATIC F20480/4", color: "Negro", material: "ACERO INOX", precio: 500, stock: 7, categoria: "HOMBRE", img:'./img/productos/f20480_4.png', cantidad: 1},
-    {id:13, marca:"FESTINA", nombre:"BOYFRIEND COLLECTION F20399/1", color:"Plata", material:"ACERO", precio: 500, stock: 3, categoria:"MUJER", img:"./img/productos/f20399_1.png", cantidad: 1},
+    {id:13, marca:"FESTINA", nombre:"BOYFRIEND F20399/1", color:"Plata", material:"ACERO", precio: 500, stock: 3, categoria:"MUJER", img:"./img/productos/f20399_1.png", cantidad: 1},
     {id:14, marca:"FESTINA", nombre:"BOYFRIEND F20397/2", color:"Azul", material:"ACERO", precio: 500, stock: 3, categoria:"MUJER", img:"./img/productos/f20397_2.png", cantidad: 1},
     {id:15, marca:"FESTINA", nombre:"BOYFRIEND F20397/1", color:"Nacar", material:"ACERO INOX", precio: 500, stock: 5, categoria:"MUJER", img:"./img/productos/f20397_1.png", cantidad: 1},
     {id:16, marca:"FESTINA", nombre:"MADEMOISELLE F20333/1", color:"Plata", material:"ACERO INOX", precio: 500, stock:4, categoria:"MUJER", img:"./img/productos/f20333_1.png", cantidad: 1},
