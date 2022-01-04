@@ -125,6 +125,21 @@ function  actualizarCarrito (){
 
 
 
-
+$('#finCompra').on('click', function () {
+    Toastify({
+        text: "Gracias por su compra 🤑 ",
+        className: "info",
+        style: {
+          background: "green",
+          fontSize: "12px",
+          
+        }
+    }).showToast();
+    
+    carritoDeCompras= [],
+    localStorage.clear()
+    actualizarCarrito()
+    $('#carrito-contenedor').empty()
+})
 
 
