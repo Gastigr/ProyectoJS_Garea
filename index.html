@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="icon" type="image/jpg" href="img/img_logo/E-FESTINA.png">
+    <link rel="icon" type="image/jpg" href="img/img_logo/logo_festina.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -20,10 +20,20 @@
 
 <body>
     <header>
-        <h1>E-FESTINA</h1>
+        <a href="index.html"><img class="logo" src="./img/img_logo/logo_fest.png" alt=""></a>
+        <article class="article">
+            <ul>
+                <li><button id="btnLightMode" class="btnLightMode btn btn-light"><i class="fas fa-sun"></i></button></li>
+                <li><button id="btnDarkMode" class="btnDarkMode btn btn-dark"><i class="fas fa-moon"></i></button></li>
+            </ul>
+        </article>
         <button id="boton-carrito"><i class="fas fa-cart-arrow-down"></i><span id="contadorCarrito">0</span></i></button>
+
+
         
     </header>
+    
+    
     <select id="material">
         <option value="all">Material</option>
         <option value="ACERO">Acero</option>
@@ -61,6 +71,10 @@
     <main id="contenedor-productos" class="row"></main>
    
    
+
+
+
+    
    
     <div class="btn-whatsapp">
         <a href="https://api.whatsapp.com/send?     phone=5199999999" target="_blank" rel="noopener">
@@ -69,8 +83,64 @@
     </div>
 
 
+    <footer class="footer-bs">
+        <div class="row">
+            <div>
+            	<h2>Contacto</h2>
+                <div class="container">
+                    <form id="formCliente">
+                        <div class="mb-3">
+                          <label for="nombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombre" name="nombre" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" >
+                          </div>
+                          <div class="mb-3">
+                            <label for="dni" class="form-label">DNI</label>
+                            <input type="number" class="form-control" id="dni" name="dni" >
+                          </div>
+                          <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" >
+                          </div>
+                          <div class="mb-3">
+                            <label for="sueldo" class="form-label">Sueldo</label>
+                            <input type="number" class="form-control" id="sueldo" name="sueldo" >
+                          </div>
+                        <button type="submit" class="btn btn-primary">Cargar Cliente</button><br><br>
+                      </form>
+        	
+        	    <div>
+            	
+            	    <h4>Quines Somos</h4>
+            	    <div >
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+        	<div>
+            	<h4>Redes Sociales</h4>
+            	<ul>
+                	<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+                	<li><a href=""><i class="fab fa-github"></i></a></li>
+                	<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                	
+                </ul>
+            </div>
+        	
+        </div>
+    </footer>
+    
 
 
+   
 
 
 
@@ -81,6 +151,7 @@
     <script src="./JS/filtros.js"></script>
     <script src="./JS/stock.js"></script>
     <script src="./JS/carrito.js"></script>
+    <script src="./JS/modos.js"></script>
 	<script src="./JS/main.js"></script>
 </body>
 </html>

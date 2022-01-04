@@ -22,8 +22,7 @@ function mostrarProductos(array){
                     <p> Marca:${productos.marca}</p>
                     <p class="card-text">Color:  ${productos.color}</p>
                     <p class="card-text">Material:  ${productos.material}</p>
-                    <p class="card-text">€${productos.precio}</p>
-                    <p class="card-text">Stock:  ${productos.stock}</p>
+                    <p class="card-text">${productos.precio}€</p>
                     <p class="card-text color"> ${productos.categoria}</p>
                 </div>
             </div>
@@ -40,6 +39,8 @@ function mostrarProductos(array){
                 className: "info",
                 style: {
                   background: "green",
+                  fontSize: "12px",
+                  
                 }
             }).showToast();
         });
@@ -86,6 +87,9 @@ function mostrarCarrito (productoAgregar){
                     style: {
                         background: "black",
                         color: "white",
+                        fontSize: "12px",
+                        
+                        
                     }
                 }).showToast();
                 localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
