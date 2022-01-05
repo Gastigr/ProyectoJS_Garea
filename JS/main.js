@@ -3,18 +3,39 @@ let carritoDeCompras = []
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
-mostrarProductos(arrayRelojes)
+
+
+$(()=>{
+    $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
+
+
+    setTimeout(()=>{
+
+        mostrarProductos(arrayRelojes)
+    },2000);
+})
+
+
+
+
+
+
+
+
+
 
 function mostrarProductos(array){
 
     $('#contenedor-productos').empty()
+    $('#contenedor-productos').fadeIn()
 
     array.forEach(productos => {
         $('#contenedor-productos').append(`
         <div class="producto">
             <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
                    <div class="card-image">
-                       <img src="${productos.img}" class="card-img-top "alt="...">
+                       <img src='./img/img_logo/logo_fest.gif' class="loader">
+                       <img src="${productos.img}" class="card-img-top productoLoad" ">
                        <span class="card-title">${productos.nombre}</span>
                        <a id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
                    </div>    
@@ -28,6 +49,18 @@ function mostrarProductos(array){
             </div>
         </div>    
         `)
+
+        $('.productoLoad').on('load', function(){
+            $(this).hide()
+            setTimeout(() => {
+                $(this).show()
+                $('.loader').hide()
+            }, 1000);
+        })
+
+
+
+
         let botonAgregar = document.getElementById(`boton${productos.id}`)
         
         botonAgregar.addEventListener(`click`, ()=>{
