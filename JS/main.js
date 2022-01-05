@@ -73,6 +73,7 @@ function mostrarProductos(array){
                 style: {
                   background: "green",
                   fontSize: "12px",
+                  marginRight:" 7%",
                   
                 }
             }).showToast();
@@ -121,6 +122,7 @@ function mostrarCarrito (productoAgregar){
                         background: "black",
                         color: "white",
                         fontSize: "12px",
+                        marginRight:" 7%",
                         
                         
                     }
@@ -165,6 +167,7 @@ $('#finCompra').on('click', function () {
         style: {
           background: "green",
           fontSize: "12px",
+          marginRight:" 7%",
           
         }
     }).showToast();

@@ -19,21 +19,15 @@
 
 
 <body>
+    
     <header>
         <a href="index.html"><img class="logo" src="./img/img_logo/logo_fest.png" alt=""></a>
-        <article class="article">
-            <ul>
-                <li><button id="btnLightMode" class="btnLightMode btn btn-light"><i class="fas fa-sun"></i></button></li>
-                <li><button id="btnDarkMode" class="btnDarkMode btn btn-dark"><i class="fas fa-moon"></i></button></li>
-                
-            </ul>
-        </article>
         
-        <button id="boton-carrito"><i class="fas fa-cart-arrow-down"></i><span id="contadorCarrito">0</span></i></button>
-        
-
-        
+            
+        <!-- <button class="contacto"><i class="far fa-address-card"></i></button> -->
+        <button id="boton-carrito"><i class="fas fa-cart-arrow-down"></i><span id="contadorCarrito">0</span></i></button>  
     </header>
+    
     
     
     <select id="material">
@@ -59,9 +53,14 @@
         <option value="Rosa">Rosa</option>
         <option value="Champan">Champan</option>
     </select>
-
     
-
+    <section class="btnModo">
+        <button id="btnLightMode" class="btnLightMode btn btn-light"><i class="fas fa-sun"></i></button>
+        <button id="btnDarkMode" class="btnDarkMode btn btn-dark"><i class="fas fa-moon"></i></button>
+    </section>
+    
+    
+    
     
     
     <main id="contenedor-productos" class="row"></main>
@@ -90,7 +89,7 @@
 
 
    
-<div class="btn-whatsapp">
+    <div class="btn-whatsapp">
         <a href="https://api.whatsapp.com/send?     phone=5199999999" target="_blank" rel="noopener">
             <img src="img/img_logo/btn_whatsapp.png" alt="btn-whatsapp">
         </a>

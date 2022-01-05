@@ -15,7 +15,7 @@ img {
     width: 100%;
     margin-bottom: 10px;
 }
-header {
+ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,8 +24,8 @@ header {
     background-color: black;
     position: sticky;
     z-index: 500;
-    top: 1%;
-}
+    top: 0%;
+ }
 h1 {
     color:blanchedalmond;
     text-transform: uppercase;
@@ -37,14 +37,21 @@ p {
     color: black;
 }
 
-select {
-    display: inline;
-    text-align: center;
-    border: 1px solid blanchedalmond;
-    width: 100px;
-    background-color: black;
-    color: blanchedalmond;
-}
+/* div botones */
+
+
+
+
+
+/* div botones */
+    select {
+        display: inline;
+        text-align: center;
+        border: 1px solid blanchedalmond;
+        width: 100px;
+        background-color: black;
+        color: blanchedalmond;
+    }
 #boton-carrito {
     border: solid;
     color: black;
@@ -70,6 +77,15 @@ select {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.btnModo{
+    display: inline;
+    margin-left: 80%;
+}
+
+
+
+
 .logo{
     width: 100px;
 }
