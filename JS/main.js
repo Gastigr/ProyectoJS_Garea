@@ -16,14 +16,6 @@ $(()=>{
 })
 
 
-
-
-
-
-
-
-
-
 function mostrarProductos(array){
 
     $('#contenedor-productos').empty()
@@ -49,7 +41,7 @@ function mostrarProductos(array){
             </div>
         </div>    
         `)
-
+        
         $('.productoLoad').on('load', function(){
             $(this).hide()
             setTimeout(() => {
@@ -162,20 +154,21 @@ function  actualizarCarrito (){
 
 $('#finCompra').on('click', function () {
     Toastify({
-        text: "Gracias por su compra 🤑 ",
-        className: "info",
+    text: "Gracias por su compra  ",
+    className: "info",
         style: {
-          background: "green",
-          fontSize: "12px",
-          marginRight:" 7%",
-          
+            background: "green",
+            fontSize: "12px",
+            marginRight:" 7%",
         }
     }).showToast();
-    
-    carritoDeCompras= [],
-    localStorage.clear()
-    actualizarCarrito()
-    $('#carrito-contenedor').empty()
+        
+        carritoDeCompras= [],
+        localStorage.clear()
+        actualizarCarrito()
+        $('#carrito-contenedor').empty()
 })
+    
+    
 
 

@@ -79,8 +79,9 @@ p {
 }
 
 .btnModo{
-    display: inline;
-    margin-left: 80%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1%;
 }
 
 
