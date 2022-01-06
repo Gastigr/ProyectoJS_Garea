@@ -24,40 +24,44 @@
         <a href="index.html"><img class="logo" src="./img/img_logo/logo_fest.png" alt=""></a>
         
             
-        <!-- <button class="contacto"><i class="far fa-address-card"></i></button> -->
+        
+
+        
         <button id="boton-carrito"><i class="fas fa-cart-arrow-down"></i><span id="contadorCarrito">0</span></i></button>  
     </header>
     
+    <div class="botones">
+        <select id="material">
+            <option value="all">Material</option>
+            <option value="ACERO">Acero</option>
+            <option value="ACERO INOX">Acero Inox</option>
+            <option value="CAUCHO">Caucho</option>
+            <option value="PIEL">Piel</option>
+        </select>
+        <select id="categoria">
+            <option value="all">Categoria</option>
+            <option value="HOMBRE">Hombre</option>
+            <option value="MUJER">Mujer</option>
+        </select>
+        <select id="color">
+            <option value="all">Colores</option>
+            <option value="Verde">Verde</option>
+            <option value="Azul">Azul</option>
+            <option value="Plata">Plata</option>
+            <option value="Negro">Negro</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Nacar">Nacar</option>
+            <option value="Rosa">Rosa</option>
+            <option value="Champan">Champan</option>
+        </select>
+        
+        <div class="btnModo">
+            <button id="btnLightMode" class="btnLightMode btn btn-light"><i class="fas fa-sun"></i></button>
+            <button id="btnDarkMode" class="btnDarkMode btn btn-dark"><i class="fas fa-moon"></i></button>
+        </div>
+        
+    </div>
     
-    
-    <select id="material">
-        <option value="all">Material</option>
-        <option value="ACERO">Acero</option>
-        <option value="ACERO INOX">Acero Inox</option>
-        <option value="CAUCHO">Caucho</option>
-        <option value="PIEL">Piel</option>
-    </select>
-    <select id="categoria">
-        <option value="all">Categoria</option>
-        <option value="HOMBRE">Hombre</option>
-        <option value="MUJER">Mujer</option>
-    </select>
-    <select id="color">
-        <option value="all">Colores</option>
-        <option value="Verde">Verde</option>
-        <option value="Azul">Azul</option>
-        <option value="Plata">Plata</option>
-        <option value="Negro">Negro</option>
-        <option value="Blanco">Blanco</option>
-        <option value="Nacar">Nacar</option>
-        <option value="Rosa">Rosa</option>
-        <option value="Champan">Champan</option>
-    </select>
-    
-    <section class="btnModo">
-        <button id="btnLightMode" class="btnLightMode btn btn-light"><i class="fas fa-sun"></i></button>
-        <button id="btnDarkMode" class="btnDarkMode btn btn-dark"><i class="fas fa-moon"></i></button>
-    </section>
     
     
     
@@ -96,12 +100,15 @@
     </div>
 
 
+    
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    
     <script src="./JS/filtros.js"></script>
     <script src="./JS/stock.js"></script>
     <script src="./JS/carrito.js"></script>

@@ -37,15 +37,14 @@ p {
     color: black;
 }
 
-
-    select {
-        display: inline;
-        text-align: center;
-        border: 1px solid blanchedalmond;
-        width: 100px;
-        background-color: black;
-        color: blanchedalmond;
-    }
+select {
+    display: inline;
+    text-align: center;
+    border: 1px solid blanchedalmond;
+    width: 100px;
+    background-color: black;
+    color: blanchedalmond;
+}
 #boton-carrito {
     border: solid;
     color: black;
@@ -54,6 +53,24 @@ p {
     border-radius: 30%;
     padding: 10px 20px;
     transition: all .1s;
+}
+.contacto{
+    border: solid;
+    color: black;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 30%;
+    padding: 10px 20px;
+    transition: all .1s;
+    margin-left: 86%;
+}
+.contacto:hover{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+.contacto:focus {
+    outline: none;
 }
 #boton-carrito:hover {
     cursor: pointer;
@@ -75,12 +92,22 @@ p {
 .btnModo{
     display: flex;
     justify-content: flex-end;
-    padding: 1%;
+    padding: 0%;
+    margin-left: 80%;
+
 }
 
+.botones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
 
-
-
+.formFooter{
+    display: flex;
+}
 .logo{
     width: 100px;
 }

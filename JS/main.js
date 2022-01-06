@@ -18,10 +18,7 @@ $(()=>{
 })
 
 $.getJSON('./Json/mistock.json', function(data){
-    
     data.forEach(elemento => arrayRelojes.push(elemento))
-
-    
 })
 
 
@@ -153,6 +150,7 @@ function recuperar (){
         })
     }
 }
+
 recuperar()
 
 function  actualizarCarrito (){
@@ -173,27 +171,16 @@ $('#finCompra').on('click', function () {
                 marginRight:" 7%",
             }
     }).showToast();
-            
-
-
     $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
         
         if(estado){
             
             $('#carrito-contenedor').empty()
-            
             carritoDeCompras= []
             localStorage.clear()
             actualizarCarrito()
-            
         }
-
     } )
-
-
-
-    
-        
 })
     
     
