@@ -164,16 +164,27 @@ function  actualizarCarrito (){
 
 
 $('#finCompra').on('click', function () {
+    Toastify({
+        text: "Gracias por su compra  ",
+        className: "info",
+            style: {
+                background: "red",
+                fontSize: "20px",
+                marginRight:" 7%",
+            }
+    }).showToast();
+            
 
 
     $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
         
         if(estado){
-            carritoDeCompras= [],
+            
+            $('#carrito-contenedor').empty()
+            
+            carritoDeCompras= []
             localStorage.clear()
             actualizarCarrito()
-            $('#carrito-contenedor').empty()
-            $('#carrito-contenedor').append('<h3>Gracias por su compra ✈️</h3> <p> Su  Nº de pedido es: 12345abcd</p> ')
             
         }
 
@@ -181,16 +192,7 @@ $('#finCompra').on('click', function () {
 
 
 
-    Toastify({
-    text: "Gracias por su compra  ",
-    className: "info",
-        style: {
-            background: "red",
-            fontSize: "20px",
-            marginRight:" 7%",
-        }
-    }).showToast();
-        
+    
         
 })
     
