@@ -59,24 +59,7 @@ select {
     padding: 10px 20px;
     transition: all .1s;
 }
-.contacto{
-    border: solid;
-    color: black;
-    font-size: 15px;
-    background-color: white;
-    border-radius: 30%;
-    padding: 10px 20px;
-    transition: all .1s;
-    margin-left: 86%;
-}
-.contacto:hover{
-    cursor: pointer;
-    color: white;
-    background-color: black;
-}
-.contacto:focus {
-    outline: none;
-}
+
 #boton-carrito:hover {
     cursor: pointer;
     color: white;
@@ -98,7 +81,7 @@ select {
     display: flex;
     justify-content: flex-end;
     padding: 0%;
-    margin-left: 80%;
+    margin-left: 76%;
 
 }
 
