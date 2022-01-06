@@ -15,6 +15,11 @@ img {
     width: 100%;
     margin-bottom: 10px;
 }
+button:focus {
+    outline: none;
+    background-color: white;
+}
+
  header {
     display: flex;
     justify-content: space-between;
@@ -105,9 +110,7 @@ select {
     align-items: center;
 }
 
-.formFooter{
-    display: flex;
-}
+
 .logo{
     width: 100px;
 }
@@ -198,7 +201,7 @@ select {
     padding: 11px;
     border-radius: 0 0 2px 2px;
 }
-/* cariito de compras */
+/* carito de compras */
 .productoEnCarrito {
     border-left: 5px solid white;
     border-bottom-left-radius: 3px;
@@ -248,11 +251,9 @@ select {
    
 }
 
-.article ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    
+#finCompra{
+    outline: none;
+    background-color: white;
 }
 
 

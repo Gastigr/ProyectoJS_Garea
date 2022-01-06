@@ -6,7 +6,7 @@ const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
 
-
+//animacion simulando carga en base de datos//
 $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
 
@@ -17,10 +17,10 @@ $(()=>{
     },2000);
 })
 
+//aplicando AJAX//
 $.getJSON('./Json/mistock.json', function(data){
     data.forEach(elemento => arrayRelojes.push(elemento))
 })
-
 
 
 
@@ -160,7 +160,7 @@ function  actualizarCarrito (){
 }
 
 
-
+//boton de finalizar compra con su mensaje (utilizando AJAX/JSON)//
 $('#finCompra').on('click', function () {
     Toastify({
         text: "Gracias por su compra  ",
@@ -175,10 +175,11 @@ $('#finCompra').on('click', function () {
         
         if(estado){
             
-            $('#carrito-contenedor').empty()
+            
             carritoDeCompras= []
             localStorage.clear()
             actualizarCarrito()
+            $('#carrito-contenedor').empty()
         }
     } )
 })
