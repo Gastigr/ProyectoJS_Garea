@@ -1,4 +1,6 @@
 let carritoDeCompras = []
+let arrayRelojes = []
+
 
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
@@ -14,6 +16,15 @@ $(()=>{
         mostrarProductos(arrayRelojes)
     },2000);
 })
+
+$.getJSON('./Json/mistock.json', function(data){
+    
+    data.forEach(elemento => arrayRelojes.push(elemento))
+
+    
+})
+
+
 
 
 function mostrarProductos(array){
@@ -153,20 +164,34 @@ function  actualizarCarrito (){
 
 
 $('#finCompra').on('click', function () {
+
+
+    $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
+        
+        if(estado){
+            carritoDeCompras= [],
+            localStorage.clear()
+            actualizarCarrito()
+            $('#carrito-contenedor').empty()
+            $('#carrito-contenedor').append('<h3>Gracias por su compra ✈️</h3> <p> Su  Nº de pedido es: 12345abcd</p> ')
+            
+        }
+
+    } )
+
+
+
     Toastify({
     text: "Gracias por su compra  ",
     className: "info",
         style: {
-            background: "green",
-            fontSize: "12px",
+            background: "red",
+            fontSize: "20px",
             marginRight:" 7%",
         }
     }).showToast();
         
-        carritoDeCompras= [],
-        localStorage.clear()
-        actualizarCarrito()
-        $('#carrito-contenedor').empty()
+        
 })
     
     
