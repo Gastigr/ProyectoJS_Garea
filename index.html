@@ -22,8 +22,15 @@
     
     <header>
         <a href="index.html"><img class="logo" src="./img/img_logo/logo_fest.png" alt=""></a>
+        
         <button id="boton-carrito"><i class="fas fa-cart-arrow-down"></i><span id="contadorCarrito">0</span></i></button>  
     </header>
+
+
+   
+
+
+
     <!-- botones de filtros -->
     <div class="botones">
         <select id="material">
@@ -58,6 +65,11 @@
     </div>
     
     
+
+
+
+    
+    
     
     
     
@@ -67,24 +79,41 @@
    <!-- Carrito de compras -->
     <div class="modal-contenedor">
         <div class="modal-carrito">
-            <h3>Carrito</h3>
+            <h3>Tu carrito</h3>
             <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-            <div id="carrito-contenedor">
-
-            </div>
+            <div id="carrito-contenedor"></div>
             <p class="precioProducto">Precio total: €<span id="precioTotal">0</span></p>
-            <button id="finCompra" class="btn btn-light">finalizar Compra </i></button>
+            <button id="finCompra" class="btn btn-dark">finalizar Compra </i></button>
         </div>  
     </div>
+
+
     
-    <!-- bton flotante de Whatsapp -->
+    <!-- bton flotante-->
     <div class="btn-whatsapp">
         <a href="https://api.whatsapp.com/send?     phone=5199999999" target="_blank" rel="noopener">
             <img src="img/img_logo/H794f99266c5d4fd387a337d99a786172K.png" alt="btn-whatsapp">
         </a>
     </div>
+    
 
+    <footer>    
+        <section id="contact">
+            <div>
+                <div class="direct-contact-container">
+                    <ul class="social-media-list">
+                        <li><a href="#" target="_blank" class="contact-icon">
+                            <i class="fa fa-github" aria-hidden="true"></i></a>
+                        <li><a href="#" target="_blank" class="contact-icon">
+                            <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
+        <div class="copyright">&copy; Desarrollado por Gaston Garea</div>
+    </footer>
     
 
 
@@ -97,6 +126,7 @@
     <script src="./JS/filtros.js"></script>
     <script src="./JS/stock.js"></script>
     <script src="./JS/carrito.js"></script>
+    <script src="./JS/user.js"></script>
     <script src="./JS/modos.js"></script>
 	<script src="./JS/main.js"></script>
 </body>

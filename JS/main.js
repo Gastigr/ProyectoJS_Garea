@@ -172,8 +172,8 @@ $('#finCompra').on('click', function () {
             }
     }).showToast();
     $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
-        
-        if(estado){
+        console.log(data,estado)
+        if(data,estado){
             
             
             carritoDeCompras= []
@@ -185,5 +185,3 @@ $('#finCompra').on('click', function () {
 })
     
     
-
-
