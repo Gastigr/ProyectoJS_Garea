@@ -6,7 +6,7 @@ const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
 
-//animacion simulando carga en base de datos//
+//animacion simulando carga//
 $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
 
@@ -20,6 +20,8 @@ $(()=>{
 //aplicando AJAX//
 $.getJSON('./Json/mistock.json', function(data){
     data.forEach(elemento => arrayRelojes.push(elemento))
+    
+
 })
 
 
@@ -66,7 +68,6 @@ function mostrarProductos(array){
         botonAgregar.addEventListener(`click`, ()=>{
             agregarAlCarrito(productos.id)
             
-
             Toastify({
                 text: "Producto Agregado ✅",
                 className: "info",
@@ -89,10 +90,9 @@ function agregarAlCarrito(id) {
         $(`#cantidad${verificar.id}`).html (`<p id="cantidad${verificar.id}">Cantidad:${verificar.cantidad}</p>`)
         actualizarCarrito()
     }else{
-         let productoAgregar = arrayRelojes.find(producto => producto.id == id)
+        let productoAgregar = arrayRelojes.find(producto => producto.id == id)
 
         carritoDeCompras.push(productoAgregar)  
-
         mostrarCarrito(productoAgregar)
         actualizarCarrito()
     }
@@ -123,8 +123,6 @@ function mostrarCarrito (productoAgregar){
                         color: "white",
                         fontSize: "12px",
                         marginRight:" 7%",
-                        
-                        
                     }
                 }).showToast();
                 localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
@@ -172,10 +170,8 @@ $('#finCompra').on('click', function () {
             }
     }).showToast();
     $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
-        console.log(data,estado)
+        
         if(data,estado){
-            
-            
             carritoDeCompras= []
             localStorage.clear()
             actualizarCarrito()
