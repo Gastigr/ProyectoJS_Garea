@@ -1,26 +1,22 @@
 let carritoDeCompras = []
 let arrayRelojes = []
 
-
-const contadorCarrito = document.getElementById('contadorCarrito');
-const precioTotal = document.getElementById('precioTotal');
-
-
 //animacion simulando carga//
 $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
 
 
     setTimeout(()=>{
-
         mostrarProductos(arrayRelojes)
     },2000);
 })
 
 //aplicando AJAX//
 $.getJSON('./Json/mistock.json', function(data){
+    
     data.forEach(elemento => arrayRelojes.push(elemento))
     
+
 
 })
 
@@ -61,9 +57,10 @@ function mostrarProductos(array){
         })
 
 
-
+        
 
         let botonAgregar = document.getElementById(`boton${productos.id}`)
+        
         
         botonAgregar.addEventListener(`click`, ()=>{
             agregarAlCarrito(productos.id)
@@ -81,7 +78,6 @@ function mostrarProductos(array){
         });
     })
 }
-
 
 function agregarAlCarrito(id) {
     let verificar = carritoDeCompras.find(elemento => elemento.id == id)
@@ -123,6 +119,7 @@ function mostrarCarrito (productoAgregar){
                         color: "white",
                         fontSize: "12px",
                         marginRight:" 7%",
+                        
                     }
                 }).showToast();
                 localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
@@ -144,7 +141,7 @@ function recuperar (){
         recuperar.forEach(el => {
             mostrarCarrito(el)
             carritoDeCompras.push(el)
-            actualizarCarrito(  )
+            actualizarCarrito()
         })
     }
 }
@@ -152,6 +149,12 @@ function recuperar (){
 recuperar()
 
 function  actualizarCarrito (){
+    if(carritoDeCompras.length > 0){
+        $('#finCompra').show()
+    }else{
+        $('#finCompra').hide()
+        
+    }
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
     
@@ -160,22 +163,26 @@ function  actualizarCarrito (){
 
 //boton de finalizar compra con su mensaje (utilizando AJAX/JSON)//
 $('#finCompra').on('click', function () {
-    Toastify({
-        text: "Gracias por su compra  ",
-        className: "info",
-            style: {
-                background: "red",
-                fontSize: "20px",
-                marginRight:" 7%",
-            }
-    }).showToast();
+    
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Gracias por su compra',
+        showConfirmButton: false,
+        timer: 1250
+      })
     $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
         
         if(data,estado){
+            carritoDeCompras.map(item => item.cantidad = 1)
             carritoDeCompras= []
             localStorage.clear()
             actualizarCarrito()
             $('#carrito-contenedor').empty()
+            
+        }else{
+            
         }
     } )
 })
