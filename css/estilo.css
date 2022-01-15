@@ -19,7 +19,9 @@ button:focus {
     outline: none;
     background-color: white;
 }
-
+a{
+    color: white;
+}
  header {
     display: flex;
     justify-content: space-between;
@@ -45,10 +47,9 @@ p {
 select {
     display: inline;
     text-align: center;
-    border: 1px solid blanchedalmond;
-    width: 100px;
+    border: 1px solid white;
     background-color: black;
-    color: blanchedalmond;
+    color: white; 
 }
 #boton-carrito {
     border: solid;
@@ -155,6 +156,12 @@ select {
     padding: 20px;
     margin-top: -100%;
     transition: all .5s;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    height: auto;
+    display: grid;
+    justify-content: stretch;
+    border-radius: 5%;
 }
 
 .modal-active .modal-carrito {
@@ -185,7 +192,13 @@ select {
     
 }
 
+.modal-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border-top: 5px solid black;
 
+}
 
 
 

@@ -1,25 +1,18 @@
 let carritoDeCompras = []
 let arrayRelojes = []
 
-//animacion simulando carga//
+//ANIMACION//
 $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
-
-
     setTimeout(()=>{
         mostrarProductos(arrayRelojes)
     },2000);
 })
 
-//aplicando AJAX//
+//AJAX//
 $.getJSON('./Json/mistock.json', function(data){
-    
     data.forEach(elemento => arrayRelojes.push(elemento))
-    
-
-
 })
-
 
 
 function mostrarProductos(array){
@@ -55,10 +48,7 @@ function mostrarProductos(array){
                 $('.loader').hide()
             }, 1000);
         })
-
-
         
-
         let botonAgregar = document.getElementById(`boton${productos.id}`)
         
         
@@ -72,7 +62,6 @@ function mostrarProductos(array){
                   background: "green",
                   fontSize: "12px",
                   marginRight:" 7%",
-                  
                 }
             }).showToast();
         });
@@ -98,8 +87,8 @@ function agregarAlCarrito(id) {
 function mostrarCarrito (productoAgregar){
     $('#carrito-contenedor').append(`<div class="productoEnCarrito">
             <p>${productoAgregar.nombre}</p>
-            <p>Precio:€${productoAgregar.precio}</p>
             <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
+            <p>Precio:€${productoAgregar.precio}</p>
             <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="fas fa-trash-alt"></i></button>
         </div>    
         `)
@@ -119,7 +108,6 @@ function mostrarCarrito (productoAgregar){
                         color: "white",
                         fontSize: "12px",
                         marginRight:" 7%",
-                        
                     }
                 }).showToast();
                 localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
@@ -132,9 +120,6 @@ function mostrarCarrito (productoAgregar){
         
         })
 }
-
-
-
 function recuperar (){
     let recuperar = JSON.parse(localStorage.getItem('carrito'))
     if(recuperar){
@@ -142,15 +127,18 @@ function recuperar (){
             mostrarCarrito(el)
             carritoDeCompras.push(el)
             actualizarCarrito()
+
         })
     }
 }
 
 recuperar()
 
+
 function  actualizarCarrito (){
     if(carritoDeCompras.length > 0){
         $('#finCompra').show()
+        
     }else{
         $('#finCompra').hide()
         
@@ -164,14 +152,6 @@ function  actualizarCarrito (){
 //boton de finalizar compra con su mensaje (utilizando AJAX/JSON)//
 $('#finCompra').on('click', function () {
     
-
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Gracias por su compra',
-        showConfirmButton: false,
-        timer: 1250
-      })
     $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
         
         if(data,estado){
@@ -181,10 +161,16 @@ $('#finCompra').on('click', function () {
             actualizarCarrito()
             $('#carrito-contenedor').empty()
             
-        }else{
-            
         }
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Su pedido fue procesado correctamente Nº 4565s4dasdw48',
+            showConfirmButton: false,
+            timer: 2250
+          })
+    })
     } )
-})
+
     
     
