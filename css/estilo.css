@@ -22,6 +22,9 @@ button:focus {
 a{
     color: white;
 }
+h3{
+    font-size: 30px;
+}
  header {
     display: flex;
     justify-content: space-between;
@@ -79,21 +82,16 @@ select {
 }
 
 .btnModo{
-    
     display:block;
     width:70px;
     height:70px;
     color:#fff;
     position: fixed;
-    
     bottom:20px;
     border-radius:50%;
     line-height:80px;
     text-align:center;
     z-index:999;
-    
-   
-
 }
 
 .botones{
@@ -154,11 +152,10 @@ select {
     background-color: white;
     min-width: 500px;
     padding: 20px;
-    margin-top: -100%;
     transition: all .5s;
     overflow-y:scroll;
     overflow-x:hidden;
-    height: auto;
+    height: 80%;
     display: grid;
     justify-content: stretch;
     border-radius: 5%;
@@ -171,6 +168,9 @@ select {
 .modal-carrito h3 {
     color: black;
     padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .modal-carrito #carritoCerrar {
     position: absolute;
@@ -189,14 +189,15 @@ select {
 }
 .modal-carrito .precioProducto {
     padding-top: 10px;
-    
+    color: red;
+    font-size: 20px;
 }
 
 .modal-footer{
     display: flex;
     justify-content: space-between;
-    padding: 0.75rem;
-    border-top: 5px solid black;
+    padding: 1%;
+    border-top: 3px solid black;
 
 }
 
@@ -214,6 +215,9 @@ select {
     border-radius: 0 0 2px 2px;
 }
 /* carito de compras */
+.imgProducto{
+    width: 50%;
+}
 .productoEnCarrito {
     border-left: 5px solid white;
     border-bottom-left-radius: 3px;
@@ -222,6 +226,9 @@ select {
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    border: 2px solid black;
 }
 .productoEnCarrito:hover {
     border-left: 5px solid black;

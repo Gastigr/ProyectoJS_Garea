@@ -2,7 +2,7 @@
   {
     "id": 1,
     "marca": "FESTINA",
-    "nombre": "SPECIAL EDITIONS F20524/1",
+    "nombre": "SPECIAL EDIT. F20524/1",
     "color": "Azul",
     "material": "ACERO INOX",
     "precio": 500,
@@ -46,7 +46,7 @@
   {
     "id": 5,
     "marca": "FESTINA",
-    "nombre": "CHRONO BIKE 2021 F20544/3",
+    "nombre": "CHRONO BIKE F20544/3",
     "color": "Verde",
     "material": "CAUCHO",
     "precio": 500,

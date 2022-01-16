@@ -1,6 +1,9 @@
 let carritoDeCompras = []
 let arrayRelojes = []
 
+
+
+
 //ANIMACION//
 $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
@@ -12,6 +15,7 @@ $(()=>{
 //AJAX//
 $.getJSON('./Json/mistock.json', function(data){
     data.forEach(elemento => arrayRelojes.push(elemento))
+    
 })
 
 
@@ -28,14 +32,14 @@ function mostrarProductos(array){
                        <img src='./img/img_logo/logo_fest.gif' class="loader">
                        <img src="${productos.img}" class="card-img-top productoLoad" ">
                        <span class="card-title">${productos.nombre}</span>
-                       <a id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
+                       <button id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></button>
                    </div>    
-                <div class="card-content ">
-                    <p> Marca:${productos.marca}</p>
+                <div class="card-content">
+                    <p> Marca: ${productos.marca}</p>
                     <p class="card-text">Color:  ${productos.color}</p>
                     <p class="card-text">Material:  ${productos.material}</p>
                     <p class="card-text">${productos.precio}€</p>
-                    <p class="card-text color"> ${productos.categoria}</p>
+                    <p class="card-text"> ${productos.categoria}</p>
                 </div>
             </div>
         </div>    
@@ -54,7 +58,6 @@ function mostrarProductos(array){
         
         botonAgregar.addEventListener(`click`, ()=>{
             agregarAlCarrito(productos.id)
-            
             Toastify({
                 text: "Producto Agregado ✅",
                 className: "info",
@@ -83,21 +86,26 @@ function agregarAlCarrito(id) {
     }
     localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
 }
-
+//producto en el carrito de compras//
 function mostrarCarrito (productoAgregar){
-    $('#carrito-contenedor').append(`<div class="productoEnCarrito">
-            <p>${productoAgregar.nombre}</p>
-            <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
-            <p>Precio:€${productoAgregar.precio}</p>
-            <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="fas fa-trash-alt"></i></button>
-        </div>    
-        `)
-        let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
+    $('#carrito-contenedor').append(`
+    <div class="productoEnCarrito">
+        <div class="col-md-4">
+            <img src="${productoAgregar.img}" class="imgProducto card-img-top img-fluid rounded-start">
+        </div>
+        <p>${productoAgregar.nombre}</p>
+        <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
+        <p>€${productoAgregar.precio}</p>
+        <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="fas fa-trash-alt"></i></button>
+    </div>    
+`)
+    
+    let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
 
 
-        btnEliminar.addEventListener('click', () =>{
-            if(productoAgregar.cantidad == 1){
-                btnEliminar.parentElement.remove()
+    btnEliminar.addEventListener('click', () =>{
+        if(productoAgregar.cantidad == 1){
+            btnEliminar.parentElement.remove()
                 carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id)
                 actualizarCarrito()
                 Toastify({
@@ -117,8 +125,7 @@ function mostrarCarrito (productoAgregar){
                 actualizarCarrito()
                 localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
             }
-        
-        })
+    })
 }
 function recuperar (){
     let recuperar = JSON.parse(localStorage.getItem('carrito'))
@@ -138,10 +145,8 @@ recuperar()
 function  actualizarCarrito (){
     if(carritoDeCompras.length > 0){
         $('#finCompra').show()
-        
     }else{
         $('#finCompra').hide()
-        
     }
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
@@ -151,8 +156,7 @@ function  actualizarCarrito (){
 
 //boton de finalizar compra con su mensaje (utilizando AJAX/JSON)//
 $('#finCompra').on('click', function () {
-    
-    $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
+$.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
         
         if(data,estado){
             carritoDeCompras.map(item => item.cantidad = 1)
@@ -170,7 +174,7 @@ $('#finCompra').on('click', function () {
             timer: 2250
           })
     })
-    } )
+} )
 
     
     
