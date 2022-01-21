@@ -15,7 +15,7 @@ $(()=>{
 //AJAX//
 $.getJSON('./Json/mistock.json', function(data){
     data.forEach(elemento => arrayRelojes.push(elemento))
-    
+    recuperar()
 })
 
 
@@ -97,26 +97,19 @@ function mostrarCarrito (productoAgregar){
         <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="far fa-minus-square"></i></button>
         <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
         <p>€${productoAgregar.precio}</p>
-        
-    </div>    
-`)
+    </div>`
     
-    
-
+    )
     let btnAgregar = document.getElementById(`agregar${productoAgregar.id}`)
+    
     btnAgregar.addEventListener('click', () =>{
-        if(productoAgregar.cantidad == 1){
-            btnAgregar.parentElement.remove()
-                carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id )
-                actualizarCarrito()
-                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
-        }else{
-                productoAgregar.cantidad = productoAgregar.cantidad + 1
-                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>`
-                actualizarCarrito()
-                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
-            }
+        productoAgregar.cantidad = productoAgregar.cantidad + 1
+        document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>`
+        actualizarCarrito()
+        localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
     })
+
+
     let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
     
 
@@ -154,17 +147,27 @@ function recuperar (){
             actualizarCarrito()
         })
     }
+    if(carritoDeCompras.length == 0){
+        $('#carrito-contenedor').append(`<h4 class="sinProd">Tu carrito esta vacio 😞</h4>`)
+        $('.sinProd').show()
+    }
+
 }
 
-recuperar()
+
 
 
 function  actualizarCarrito (){
     if(carritoDeCompras.length > 0){
         $('#finCompra').show()
+        $('.sinProd').hide()
+
     }else{
         $('#finCompra').hide()
+        $('.sinProd').show()
     }
+
+    
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
     
@@ -187,10 +190,11 @@ $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeComp
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Su pedido fue procesado correctamente',
+            title: 'Su pedido fue aceptado correctamente',
             timer: 2250
           })
     })
+    
 } )
 
     

@@ -227,29 +227,27 @@ select {
     border-left: 5px solid black;
 }
 
-.boton-eliminar {
+.boton-eliminar , .boton-agregar{
     background-color: white ;
-    color: red;
-    border: none;
-    font-size: 30px;
-}
-.boton-agregar {
-    background-color: white ;
-    color: blue;
+    color: black;
     border: none;
     font-size: 30px;
 }
 
-.boton-eliminar:hover {
+
+.boton-eliminar , .boton-agregar:hover {
     cursor: pointer;
 }
-.boton-eliminar:focus {
+.boton-eliminar, .boton-agregar:focus {
     outline: none;
 }
 #finCompra{
     outline: none;
     background-color: white;
     display: none;
+}
+.sinProd{
+    text-align: center;
 }
 
 /* bnt whatsapp */
@@ -273,6 +271,8 @@ select {
     background-color: black;
     color: white;
 }
+
+
 
 
 
