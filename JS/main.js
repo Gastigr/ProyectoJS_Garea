@@ -79,7 +79,6 @@ function agregarAlCarrito(id) {
         actualizarCarrito()
     }else{
         let productoAgregar = arrayRelojes.find(producto => producto.id == id)
-
         carritoDeCompras.push(productoAgregar)  
         mostrarCarrito(productoAgregar)
         actualizarCarrito()
@@ -94,19 +93,37 @@ function mostrarCarrito (productoAgregar){
             <img src="${productoAgregar.img}" class="imgProducto card-img-top img-fluid rounded-start">
         </div>
         <p>${productoAgregar.nombre}</p>
+        <button class="boton-agregar" id='agregar${productoAgregar.id}'><i class="far fa-plus-square"></i></button>
+        <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="far fa-minus-square"></i></button>
         <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
         <p>€${productoAgregar.precio}</p>
-        <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="fas fa-trash-alt"></i></button>
+        
     </div>    
 `)
     
-    let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
+    
 
+    let btnAgregar = document.getElementById(`agregar${productoAgregar.id}`)
+    btnAgregar.addEventListener('click', () =>{
+        if(productoAgregar.cantidad == 1){
+            btnAgregar.parentElement.remove()
+                carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id )
+                actualizarCarrito()
+                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
+        }else{
+                productoAgregar.cantidad = productoAgregar.cantidad + 1
+                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>`
+                actualizarCarrito()
+                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
+            }
+    })
+    let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
+    
 
     btnEliminar.addEventListener('click', () =>{
         if(productoAgregar.cantidad == 1){
             btnEliminar.parentElement.remove()
-                carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id)
+                carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id )
                 actualizarCarrito()
                 Toastify({
                     text: "Producto Eliminado ❌",
@@ -127,6 +144,7 @@ function mostrarCarrito (productoAgregar){
             }
     })
 }
+
 function recuperar (){
     let recuperar = JSON.parse(localStorage.getItem('carrito'))
     if(recuperar){
@@ -134,7 +152,6 @@ function recuperar (){
             mostrarCarrito(el)
             carritoDeCompras.push(el)
             actualizarCarrito()
-
         })
     }
 }
@@ -150,6 +167,7 @@ function  actualizarCarrito (){
     }
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
+    
     
 }
 
@@ -169,8 +187,7 @@ $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeComp
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Su pedido fue procesado correctamente Nº 4565s4dasdw48',
-            showConfirmButton: false,
+            title: 'Su pedido fue procesado correctamente',
             timer: 2250
           })
     })

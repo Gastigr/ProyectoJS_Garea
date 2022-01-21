@@ -77,6 +77,8 @@ select {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
+
 }
 
 .btnModo{
@@ -168,9 +170,9 @@ select {
 }
 .modal-carrito #carritoCerrar {
     position: absolute;
-    top: 15px;
+    
     right: 15px;
-    font-size: 20px;
+    font-size: 30px;
     color: red;
     border: none;
     background-color: white;
@@ -219,6 +221,7 @@ select {
     align-items: center;
     font-size: 15px;
     border: 2px solid black;
+    align-items: baseline;
 }
 .productoEnCarrito:hover {
     border-left: 5px solid black;
@@ -228,7 +231,13 @@ select {
     background-color: white ;
     color: red;
     border: none;
-    font-size: 20px;
+    font-size: 30px;
+}
+.boton-agregar {
+    background-color: white ;
+    color: blue;
+    border: none;
+    font-size: 30px;
 }
 
 .boton-eliminar:hover {
