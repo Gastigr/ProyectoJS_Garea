@@ -185,6 +185,7 @@ $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeComp
             localStorage.clear()
             actualizarCarrito()
             $('#carrito-contenedor').empty()
+            $('#carrito-contenedor').append(`<h4 class="sinProd">Tu carrito esta vacio 😞</h4>`)
             
         }
         Swal.fire({
