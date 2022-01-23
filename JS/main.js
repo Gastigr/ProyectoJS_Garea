@@ -9,7 +9,7 @@ $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
     setTimeout(()=>{
         mostrarProductos(arrayRelojes)
-    },2000);
+    },1500);
 })
 
 //AJAX//
@@ -18,7 +18,7 @@ $.getJSON('./Json/mistock.json', function(data){
     recuperar()
 })
 
-
+//Se muestran los productos en el HTML//
 function mostrarProductos(array){
 
     $('#contenedor-productos').empty()
@@ -26,23 +26,23 @@ function mostrarProductos(array){
 
     array.forEach(productos => {
         $('#contenedor-productos').append(`
-        <div class="producto">
-            <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
-                   <div class="card-image">
-                       <img src='./img/img_logo/logo_fest.gif' class="loader">
-                       <img src="${productos.img}" class="card-img-top productoLoad" ">
-                       <span class="card-title">${productos.nombre}</span>
-                       <button id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></button>
-                   </div>    
-                <div class="card-content">
-                    <p> Marca: ${productos.marca}</p>
-                    <p class="card-text">Color:  ${productos.color}</p>
-                    <p class="card-text">Material:  ${productos.material}</p>
-                    <p class="card-text">${productos.precio}€</p>
-                    <p class="card-text"> ${productos.categoria}</p>
+            <div class="producto">
+                <div class="card " id="producto${productos.id} "style="width: 18rem; margin:6px">
+                    <div class="card-image">
+                        <img src='./img/img_logo/logo_fest.gif' class="loader">
+                        <img src="${productos.img}" class="card-img-top productoLoad" ">
+                        <span class="card-title">${productos.nombre}</span>
+                        <button id="boton${productos.id}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></button>
+                    </div>    
+                    <div class="card-content">
+                        <p> Marca: ${productos.marca}</p>
+                        <p class="card-text">Color: ${productos.color}</p>
+                        <p class="card-text">Precio: ${productos.precio}€</p>
+                        <p class="card-text">Material: ${productos.material}</p>
+                        <p class="card-text">Categoria: ${productos.categoria}</p>
+                    </div>
                 </div>
-            </div>
-        </div>    
+            </div>    
         `)
         
         $('.productoLoad').on('load', function(){
@@ -52,7 +52,7 @@ function mostrarProductos(array){
                 $('.loader').hide()
             }, 1000);
         })
-        
+        //con este boton se agrega al carrito de compras//
         let botonAgregar = document.getElementById(`boton${productos.id}`)
         
         
@@ -64,18 +64,18 @@ function mostrarProductos(array){
                 style: {
                   background: "green",
                   fontSize: "12px",
-                  marginRight:" 7%",
+                  marginRight: "7%",
                 }
             }).showToast();
         });
     })
 }
-
+//Se agrega los pordutos al carrito de compras//
 function agregarAlCarrito(id) {
     let verificar = carritoDeCompras.find(elemento => elemento.id == id)
     if(verificar){
         verificar.cantidad = verificar.cantidad +1
-        $(`#cantidad${verificar.id}`).html (`<p id="cantidad${verificar.id}">Cantidad:${verificar.cantidad}</p>`)
+        $(`#cantidad${verificar.id}`).html (`<p id="cantidad${verificar.id}">Cantidad: ${verificar.cantidad}</p>`)
         actualizarCarrito()
     }else{
         let productoAgregar = arrayRelojes.find(producto => producto.id == id)
@@ -85,35 +85,34 @@ function agregarAlCarrito(id) {
     }
     localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
 }
-//producto en el carrito de compras//
+//producto agregado en el carrito de compras//
 function mostrarCarrito (productoAgregar){
     $('#carrito-contenedor').append(`
-    <div class="productoEnCarrito">
-        <div class="col-md-4">
-            <img src="${productoAgregar.img}" class="imgProducto card-img-top img-fluid rounded-start">
-        </div>
-        <p>${productoAgregar.nombre}</p>
-        <button class="boton-agregar" id='agregar${productoAgregar.id}'><i class="far fa-plus-square"></i></button>
-        <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="far fa-minus-square"></i></button>
-        <p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>
-        <p>€${productoAgregar.precio}</p>
-    </div>`
+        <div class="productoEnCarrito">
+            <div class="col-md-4">
+                <img src="${productoAgregar.img}" class="imgProducto card-img-top img-fluid rounded-start">
+            </div>
+            <p>${productoAgregar.nombre}</p>
+            <button class="boton-agregar" id='agregar${productoAgregar.id}'><i class="far fa-plus-square"></i></button>
+            <button class="boton-eliminar" id='eliminar${productoAgregar.id}'><i class="far fa-minus-square"></i></button>
+            <p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>
+            <p>€${productoAgregar.precio}</p>
+        </div>`
     
     )
+    //boton agregar + producto//
     let btnAgregar = document.getElementById(`agregar${productoAgregar.id}`)
     
     btnAgregar.addEventListener('click', () =>{
         productoAgregar.cantidad = productoAgregar.cantidad + 1
-        document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>`
+        document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>`
         actualizarCarrito()
         localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
     })
 
-
+    // Boton eliminar - prodcuto//
     let btnEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
-    
-
-    btnEliminar.addEventListener('click', () =>{
+      btnEliminar.addEventListener('click', () =>{
         if(productoAgregar.cantidad == 1){
             btnEliminar.parentElement.remove()
                 carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id )
@@ -131,13 +130,13 @@ function mostrarCarrito (productoAgregar){
                 localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
             }else{
                 productoAgregar.cantidad = productoAgregar.cantidad - 1
-                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad:${productoAgregar.cantidad}</p>`
+                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML =`<p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>`
                 actualizarCarrito()
                 localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
             }
     })
 }
-
+//recupera los datos obtenidos por el usuario//
 function recuperar (){
     let recuperar = JSON.parse(localStorage.getItem('carrito'))
     if(recuperar){
@@ -156,7 +155,7 @@ function recuperar (){
 
 
 
-
+//Aca se actualiza el carrito//
 function  actualizarCarrito (){
     if(carritoDeCompras.length > 0){
         $('#finCompra').show()
@@ -175,7 +174,7 @@ function  actualizarCarrito (){
 }
 
 
-//boton de finalizar compra con su mensaje (utilizando AJAX/JSON)//
+//boton de finalizar compra con su mensaje//
 $('#finCompra').on('click', function () {
 $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
         

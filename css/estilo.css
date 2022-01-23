@@ -193,6 +193,7 @@ select {
     justify-content: space-between;
     padding: 1%;
     border-top: 3px solid black;
+    align-items: baseline;
 }
 
 .card .card-image .card-title{
@@ -221,7 +222,7 @@ select {
     align-items: center;
     font-size: 15px;
     border: 2px solid black;
-    align-items: baseline;
+    align-items: center;
 }
 .productoEnCarrito:hover {
     border-left: 5px solid black;
@@ -271,11 +272,6 @@ select {
     background-color: black;
     color: white;
 }
-
-
-
-
-
 /* fotter */
 .contact-wrapper {
     display: flex;
