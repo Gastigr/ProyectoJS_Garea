@@ -135,7 +135,9 @@ function mostrarCarrito (productoAgregar){
                     background: "black",
                     color: "white",
                     fontSize: "12px",
-                    marginRight:" 7%",
+                    marginRight:" 1%",
+                    
+                    
                 }
             }).showToast();
 
@@ -151,7 +153,7 @@ function mostrarCarrito (productoAgregar){
                         background: "black",
                         color: "white",
                         fontSize: "12px",
-                        marginRight:" 7%",
+                        marginRight:" 1%",
                     }
                 }).showToast();
             }
