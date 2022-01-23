@@ -1,7 +1,7 @@
 let carritoDeCompras = []
 let arrayRelojes = []
 
-//ANIMACION AJAX//
+//ANIMACION//
 $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
     setTimeout(()=>{
@@ -67,13 +67,14 @@ function mostrarProductos(array){
         });
     })
 }
-//Se agrega los pordutos al carrito de compras//
+//Se agrega los produtos al carrito de compras//
 function agregarAlCarrito(id) {
     let verificar = carritoDeCompras.find(elemento => elemento.id == id)
     if(verificar){
         verificar.cantidad = verificar.cantidad +1
         $(`#cantidad${verificar.id}`).html (`<p id="cantidad${verificar.id}">Cantidad: ${verificar.cantidad}</p>`)
         actualizarCarrito()
+        
     }else{
         let productoAgregar = arrayRelojes.find(producto => producto.id == id)
         carritoDeCompras.push(productoAgregar)  
@@ -101,10 +102,22 @@ function mostrarCarrito (productoAgregar){
     let btnAgregar = document.getElementById(`agregar${productoAgregar.id}`)
     
     btnAgregar.addEventListener('click', () =>{
+        
         productoAgregar.cantidad = productoAgregar.cantidad + 1
         document.getElementById(`cantidad${productoAgregar.id}`).innerHTML = `<p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>`
         actualizarCarrito()
         localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
+        Toastify({
+            text: "Producto Agregado ✅",
+            className: "info",
+            style: {
+              background: "green",
+              fontSize: "12px",
+              marginRight: "7%",
+            }
+        }).showToast();
+
+        
     })
 
     // Boton eliminar - prodcuto//
@@ -112,8 +125,25 @@ function mostrarCarrito (productoAgregar){
       btnEliminar.addEventListener('click', () =>{
         if(productoAgregar.cantidad == 1){
             btnEliminar.parentElement.remove()
-                carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id )
+            carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgregar.id )
+            actualizarCarrito()
+            localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
+            Toastify({
+                text: "Producto Eliminado ❌",
+                className: "info",
+                style: {
+                    background: "black",
+                    color: "white",
+                    fontSize: "12px",
+                    marginRight:" 7%",
+                }
+            }).showToast();
+
+            }else{
+                productoAgregar.cantidad = productoAgregar.cantidad - 1
+                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML =`<p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>`
                 actualizarCarrito()
+                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
                 Toastify({
                     text: "Producto Eliminado ❌",
                     className: "info",
@@ -124,12 +154,6 @@ function mostrarCarrito (productoAgregar){
                         marginRight:" 7%",
                     }
                 }).showToast();
-                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
-            }else{
-                productoAgregar.cantidad = productoAgregar.cantidad - 1
-                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML =`<p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>`
-                actualizarCarrito()
-                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
             }
     })
 }
@@ -162,8 +186,6 @@ function  actualizarCarrito (){
         $('#finCompra').hide()
         $('.sinProd').show()
     }
-
-    
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
     
