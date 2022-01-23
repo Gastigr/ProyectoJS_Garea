@@ -1,10 +1,7 @@
 let carritoDeCompras = []
 let arrayRelojes = []
 
-
-
-
-//ANIMACION//
+//ANIMACION AJAX//
 $(()=>{
     $('#contenedor-productos').append("<img src='./img/img_logo/logo_fest.gif'>")
     setTimeout(()=>{
@@ -172,9 +169,7 @@ function  actualizarCarrito (){
     
     
 }
-
-
-//boton de finalizar compra con su mensaje//
+//boton de finalizar compra con mensaje//
 $('#finCompra').on('click', function () {
 $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeCompras), function(data,estado){
         
@@ -191,7 +186,7 @@ $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeComp
             position: 'center',
             icon: 'success',
             title: 'Su pedido fue aceptado correctamente',
-            timer: 2250
+            timer: 1550
           })
     })
     

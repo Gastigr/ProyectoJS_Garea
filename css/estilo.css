@@ -306,7 +306,7 @@ select {
     line-height: 60px;
     border-radius: 50%;
     color: #fff;
-    background-color: rgb(27, 27, 27);
+    background-color: #1b1b1b;
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
@@ -337,3 +337,8 @@ select {
     height: 100%;
     background-color: #222;
 }
+
+
+
+
+
