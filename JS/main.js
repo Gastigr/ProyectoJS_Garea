@@ -17,10 +17,8 @@ $.getJSON('./Json/mistock.json', function(data){
 
 //Se muestran los productos en el HTML//
 function mostrarProductos(array){
-
     $('#contenedor-productos').empty()
     $('#contenedor-productos').fadeIn()
-
     array.forEach(productos => {
         $('#contenedor-productos').append(`
             <div class="producto">
@@ -39,8 +37,8 @@ function mostrarProductos(array){
                         <p class="card-text">Categoria: ${productos.categoria}</p>
                     </div>
                 </div>
-            </div>    
-        `)
+            </div>`
+        )
         
         $('.productoLoad').on('load', function(){
             $(this).hide()
@@ -136,27 +134,25 @@ function mostrarCarrito (productoAgregar){
                     color: "white",
                     fontSize: "12px",
                     marginRight:" 1%",
-                    
-                    
                 }
             }).showToast();
 
-            }else{
-                productoAgregar.cantidad = productoAgregar.cantidad - 1
-                document.getElementById(`cantidad${productoAgregar.id}`).innerHTML =`<p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>`
-                actualizarCarrito()
-                localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
-                Toastify({
-                    text: "Producto Eliminado ❌",
-                    className: "info",
-                    style: {
-                        background: "black",
-                        color: "white",
-                        fontSize: "12px",
-                        marginRight:" 1%",
-                    }
-                }).showToast();
-            }
+        }else{
+            productoAgregar.cantidad = productoAgregar.cantidad - 1
+            document.getElementById(`cantidad${productoAgregar.id}`).innerHTML =`<p id="cantidad${productoAgregar.id}">Cantidad: ${productoAgregar.cantidad}</p>`
+            actualizarCarrito()
+            localStorage.setItem('carrito',JSON.stringify(carritoDeCompras))
+            Toastify({
+                text: "Producto Eliminado ❌",
+                className: "info",
+                style: {
+                    background: "black",
+                    color: "white",
+                    fontSize: "12px",
+                    marginRight:" 1%",
+                }
+            }).showToast();
+        }
     })
 }
 //recupera los datos obtenidos por el usuario//
@@ -173,12 +169,8 @@ function recuperar (){
         $('#carrito-contenedor').append(`<h4 class="sinProd">Tu carrito esta vacio 😞</h4>`)
         $('.sinProd').show()
     }
-
 }
-
-
-
-//Aca se actualiza el carrito//
+//se actualiza el carrito//
 function  actualizarCarrito (){
     if(carritoDeCompras.length > 0){
         $('#finCompra').show()
@@ -190,8 +182,6 @@ function  actualizarCarrito (){
     }
     contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad , 0)
     precioTotal.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad),0)
-    
-    
 }
 //boton de finalizar compra con mensaje//
 $('#finCompra').on('click', function () {
@@ -204,17 +194,17 @@ $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carritoDeComp
             actualizarCarrito()
             $('#carrito-contenedor').empty()
             $('#carrito-contenedor').append(`<h4 class="sinProd">Tu carrito esta vacio 😞</h4>`)
-            
         }
+        
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Su pedido fue aceptado correctamente',
             timer: 1550
-          })
+        })
     })
     
-} )
+})
 
     
     
