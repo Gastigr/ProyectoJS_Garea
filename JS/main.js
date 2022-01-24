@@ -155,7 +155,7 @@ function mostrarCarrito (productoAgregar){
         }
     })
 }
-//recupera los datos obtenidos por el usuario//
+//recupera los datos obtenidos en el localStorage//
 function recuperar (){
     let recuperar = JSON.parse(localStorage.getItem('carrito'))
     if(recuperar){
