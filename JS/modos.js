@@ -1,6 +1,10 @@
-//modo dark//
+const material = document.getElementById('material')
+const categoria = document.getElementById('categoria')
+const color = document.getElementById('color')
 
 let darkMode;
+
+//modo dark//
 
 if(localStorage.getItem('darkMode')) {
     darkMode = localStorage.getItem('darkMode')
@@ -36,14 +40,6 @@ $(() => {
 })
 
 //filtros //
-
-
-const material = document.getElementById('material')
-const categoria = document.getElementById('categoria')
-const color = document.getElementById('color')
-
-
-
 material.addEventListener('change', ()=>{
 
     if(material.value == 'all'){
