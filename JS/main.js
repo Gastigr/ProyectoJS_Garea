@@ -40,6 +40,7 @@ function mostrarProductos(array){
             </div>`
         )
         
+        
         $('.productoLoad').on('load', function(){
             $(this).hide()
             setTimeout(() => {
